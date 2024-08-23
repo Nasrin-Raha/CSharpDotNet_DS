@@ -1,0 +1,58 @@
+//Finalizers are used to cleanup without garbage collector
+
+using System;
+using System.Data.SqlClient;
+
+public class DatabaseConnection : IDisposable
+{
+    private SqlConnection _connection;
+    private bool _disposed = false;
+
+    // Constructor that opens the connection
+    public DatabaseConnection(string connectionString)
+    {
+        _connection = new SqlConnection(connectionString);
+        _connection.Open();
+        Console.WriteLine("Database connection opened.");
+    }
+
+    // Public method to close the connection
+    public void Close()
+    {
+        Dispose();
+    }
+
+    // Implement IDisposable to allow for explicit cleanup
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                // Dispose managed resources
+                if (_connection != null)
+                {
+                    _connection.Close();
+                    Console.WriteLine("Database connection closed.");
+                    _connection = null;
+                }
+            }
+
+            // Cleanup unmanaged resources here if any
+
+            _disposed = true;
+        }
+    }
+
+    // Finalizer to ensure cleanup in case Dispose is not called
+    ~DatabaseConnection()
+    {
+        Dispose(false);
+    }
+}
