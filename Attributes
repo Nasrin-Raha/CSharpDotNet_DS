@@ -1,0 +1,45 @@
+// Attributes are used to add meta data to the code. and used to decorate classes , methods, properties,
+
+// like Obsolete, serialization, 
+// Meaning obsolete a method mean the methocd can not be used anymore
+
+public class Attributes{
+    
+    [Obsolete("This method is obsolete, use the newmethod instead")];
+    
+    public void oldMethod(){
+        Console.WriteLine("Old Method");
+    }
+    
+    public void newMethod(){
+        Console.WriteLine("New Method");
+    }
+    
+    
+    // serializable : Indicates that a class can be serialized, meaning its instances can be converted to a format that can be stored or transported.
+
+    
+    
+    [serializable]
+    
+    public class Person{
+        
+        public string Name {get; set;}
+    }
+        public string age{get; set}
+    
+    
+    //[DllImport]: Used to import a method from a native DLL (Dynamic Link Library) into a C# application.
+    using System.Runtime.InteropServices;
+    public class Win32API{
+            [DllImport("user32.dll")]
+            public static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
+
+    }
+    
+    
+}
+
+
+Attributes test = new Attributes();
+Console.WriteLine(test.oldMethod);
