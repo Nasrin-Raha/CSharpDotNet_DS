@@ -1,0 +1,23 @@
+// Properties in C#
+// get and set is wroking likde read and write : get is read and set is write
+
+public class Properties {
+    
+    private string id;
+    
+    public string Id {
+        get {
+            return id;
+        }
+        set {
+            
+            id = value;
+        }
+    }
+    
+    public static void Main(string[] args) {
+        Properties p = new Properties();
+        p.Id = "1234";
+        Console.WriteLine(p.Id);
+    }
+}
