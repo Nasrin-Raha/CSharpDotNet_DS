@@ -1,0 +1,36 @@
+// Constructors
+using System;
+
+
+public class Account
+{
+    public string AccountNumber { get; private set; }
+    public decimal Balance { get; private set; }
+
+    public Account(string accountNumber, decimal initialBalance)
+    {
+        if (string.IsNullOrEmpty(accountNumber))
+            throw new ArgumentException("Account number cannot be null or empty.");
+
+        if (initialBalance < 0)
+            throw new ArgumentException("Initial balance cannot be negative.");
+
+        AccountNumber = accountNumber;
+        Balance = initialBalance;
+    }
+}
+
+
+// Usage
+class Program {
+    
+    static void Main() {
+        
+        Account myAccount = new Account("123456", 1000m);
+        
+        Console.WriteLine($"AccountNumber: {myAccount.AccountNumber}");
+        Console.WriteLine($"Balance: {myAccount.Balance}");
+        
+
+    }
+}
