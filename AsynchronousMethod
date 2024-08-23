@@ -1,0 +1,36 @@
+//Asynchronouse method
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+
+public class example {
+    
+    static async Task cookMeat()
+    {
+        Debug.WriteLine("Cook meat");
+    }
+    
+    static async Task cookVegetable() {
+        Debug.WriteLine("Cook vegetables");
+    }
+    
+    static async Task cookrice() {
+        Debug.WriteLine("Cook rice");
+        
+    }
+    
+    static async Task cookSoup() {
+        Debug.WriteLine("Cook soup");    }
+        
+        static async void makeDinner() {
+            await cookMeat();
+            await cookVegetable();
+            await cookrice();
+            await cookSoup();
+            
+        }
+        
+        public static void Main(string[] args) {
+            makeDinner();
+        } 
+}
