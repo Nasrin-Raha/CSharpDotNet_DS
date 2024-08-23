@@ -1,0 +1,27 @@
+// overriding
+
+
+public class example {
+    
+    public void hi() {
+        Console.WriteLine("Hello World");
+        
+    }
+}
+
+//overirde
+
+public class example2 : example{
+    
+    public void hi(){
+        Console.WriteLine("Hello World");
+
+    }
+}
+
+
+public void Main(string[] args) {
+    example2 ex = new example2();
+    ex.hi();
+}
+
