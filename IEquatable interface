@@ -1,0 +1,28 @@
+//IEquatable interface
+
+
+public class Officer {
+    
+    Guid id;
+    public Guid Id{
+        get {return id;}
+        set {id = value;}
+    }
+}
+class Program : IEqualityComparer<Officer>
+{
+    
+    public static void Main(string[] args) {
+        
+    }
+    
+    public bool Equals ([AllowNull] Officer x, [AllowNull] Officer y) {
+        return x.Id = y.Id;
+    }
+    
+    public int GetHashCode([DisallowNull] Officer obj) {
+        return obj.Id.GetHashCode();
+    }
+    
+    
+}
