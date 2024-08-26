@@ -1,0 +1,48 @@
+// INotifyPropertyChanged interface
+
+using System;
+using System.ComponentModel;
+
+public class Person: INotifyPropertyChanged
+{
+    private string name;
+    
+    public string Name {
+        
+        get {return name;}
+        
+        set {
+            if(name != value) {
+                name = value;
+                
+                OnPropertyChanged("Name");
+            }
+        }
+    }
+    
+    private int age;
+    
+    public ing Age {
+        get { return age;}
+        
+        set {
+            if(age != value) {
+                age = value;
+                
+                OnPropertyChanged("Age");
+                
+            }
+        }
+        
+    }
+    
+    public event PropertyChangedEventHandler propertyChanged;
+    
+    protected virtual void OnPropertyChanged (string propertyName) {
+        propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        
+    }
+    
+    
+    
+}
