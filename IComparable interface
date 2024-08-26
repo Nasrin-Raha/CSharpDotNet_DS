@@ -1,0 +1,32 @@
+// IComparable interface
+
+public class Program : IComparable 
+{
+    
+    public int exampleLength;
+    
+    Program ex1 = new Program() { exampleLength = 2;}
+    
+    
+    public static void Main(string[] args) {
+        
+    }
+    
+    
+    public int CompareTo(object obj) {
+        
+        Program ex2 = new Program()obj;
+        
+        if(ex1.exampleLength == ex2.exampleLength) {
+            return 0;
+        }
+        
+        else if (ex1.exampleLength > ex2.exampleLength) {
+            return 1;
+        }
+        else{
+            return -1;
+        }
+        
+    }
+}
