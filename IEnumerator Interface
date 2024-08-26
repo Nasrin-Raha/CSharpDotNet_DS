@@ -1,0 +1,46 @@
+// IEnumerator interface
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+
+class Program: IEnumerator 
+{
+    
+    List<object> items = new List<object>();
+    
+    int current;
+    
+    
+    public object current => items(current);
+    
+    
+    public static void Main(string[] args) {
+        
+    }
+    
+    
+    public bool MoveNext() {
+        if(items.count == 0 || items.count <= current){
+            return false;
+        }
+        
+        return true;
+    }
+    
+    
+    
+    public void Reset() {
+        current = 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
