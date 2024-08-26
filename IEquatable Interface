@@ -1,0 +1,27 @@
+// IEuatable interface
+
+using System;
+
+
+class Program : IEuatable<Program>
+{
+    
+    public string exampleData;
+    
+    public static void Main(string[] args) {
+        
+    }
+    
+    
+    public bool Equals([AllowNull] Program other)  {
+        
+        if(other == null) {
+            return false;
+        }
+        
+        return exampleData.GetHashCode().Equals(other.exampleData.GetHashCode());
+        
+        
+        
+    }
+}
