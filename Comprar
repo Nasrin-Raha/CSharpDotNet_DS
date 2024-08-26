@@ -1,0 +1,24 @@
+// IComparer
+
+
+using System;
+using System.Collections;
+
+class Employee {
+    public int id;
+}
+
+public class Program : IComparer
+{
+    public static void Main(string[] args) {
+        
+    }
+    
+    
+    public int Compare(object x, object y) {
+        
+        Employee employee1 = new Employee()x;
+        Employee employee2 = new Employee()y;
+        return employee1.id.CompareTo(employee2.id);
+    }
+}
