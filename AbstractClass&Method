@@ -1,0 +1,23 @@
+// Abstract class
+
+class Program 
+{
+    
+    
+    abstract class Animal { // abstract class
+        
+        public abstract void Run(int speed) { // abstract method
+            
+        }
+    };
+    
+    
+    class Dog : Animal {  // abstract child class
+        
+        public override void Run(int speed) {   // abstract method
+            Console.WriteLine("The dog is running at speed: " + speed);
+        }
+    };
+    
+    
+}
